@@ -1,0 +1,344 @@
+/* Global Rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+:root {
+    --main-color: #0075ff;
+    --main-color-alt: #607d8b;
+    --links-color: #1c91ac;
+    --links-color-hover: #0f5c76;
+    --section-background-color: #ececec;
+}
+html {
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Cairo', sans-serif; 
+}
+a {
+    text-decoration: none;
+}
+.contaner {
+    padding:0 15px ;  
+    margin: 40px auto 0;  
+}
+@media (min-width: 768px){    
+    .contaner {
+        width: 750px;
+    }
+}
+@media (min-width: 992px){    
+    .contaner {
+        width: 970px;
+    }
+}
+@media (min-width: 1200px){    
+    .contaner {
+        width: 1170px;
+    }
+}
+
+
+
+
+/* Start Page */
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.page::before {
+    content: "";
+    position: fixed;
+    width: 300%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) skew(0, -10deg);
+    background-color: var(--main-color);
+    border-radius: 50%;
+    z-index: -1;
+    animation: wave 8s ease-in-out infinite alternate;
+}
+@keyframes wave {
+    0%{
+        transform: translateX(-50%) skew(0, -10deg);
+    }
+    100% {
+        transform: translateX(-30%) skew(10deg, 0);
+    }
+}
+
+.page .card {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 -11px 10px 0 #ddd;
+    border-radius: 4px;
+    width: 400px;
+    text-align: center;
+}
+@media (max-width: 420px){    
+    .page .card {
+        width: 100%;
+        padding: 20px 5px;
+        box-shadow: 0 -1px 10px 0 #ddd;
+    }
+}
+
+
+
+
+.card .header-sign-up {
+    display: flex;
+    font-size: 30px;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.card .header-sign-up h3 {
+    width: fit-content;
+    padding: 5px 10px;
+    box-shadow: 0px 4px 6px 0 #6f6f6f;
+    border-radius: 18px;
+    user-select: none;
+}
+.card .header-sign-up h3 .tittel1 {
+    color: var(--main-color);
+    font-size: 40px;
+}
+.card .header-sign-up h3 .tittel2 {
+    font-weight: 700;
+    font-size: 30px;
+    color:var(--main-color-alt) ;
+}
+
+
+.card .body-sign-up form .sign-up h5{
+    font-weight: 700;
+    color: var(--main-color-alt);
+    font-size: 20px;
+    text-align: center;
+    padding-bottom: 19px;
+}
+
+
+.card .body-sign-up form .input-user,
+.card .body-sign-up form .input-phone-num,
+.card .body-sign-up form .input-email , 
+.card .body-sign-up form .input-password, 
+.card .body-sign-up form .input-re-password,
+.card .body-sign-up form .input-code { 
+    display: flex;
+    margin-bottom: 8px;
+    position: relative;
+}
+.card .body-sign-up form .input-user::before,
+.card .body-sign-up form .input-phone-num::before,
+.card .body-sign-up form .input-email::before , 
+.card .body-sign-up form .input-password::before, 
+.card .body-sign-up form .input-re-password::before,
+.card .body-sign-up form .input-code::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 40%;
+    background-color: var(--main-color);
+    clip-path: polygon(19% 60%, 40% 79%, 100% 10%, 100% 11%, 40% 100%, 0% 60%);
+    transition: 0.2s;
+    display: none;
+}
+.card .body-sign-up form .input-user::after,
+.card .body-sign-up form .input-phone-num::after,
+.card .body-sign-up form .input-email::after, 
+.card .body-sign-up form .input-password::after, 
+.card .body-sign-up form .input-re-password::after,
+.card .body-sign-up form .input-code::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    width: 11px;
+    height: 30%;
+    background-color: red;
+    clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+    transition: 0.2s;
+    display: none;
+}
+
+.card .body-sign-up form .input-user.bad::after,
+.card .body-sign-up form .input-phone-num.bad::after,
+.card .body-sign-up form .input-email.bad::after,
+.card .body-sign-up form .input-password.bad::after,
+.card .body-sign-up form .input-re-password.bad::after,
+.card .body-sign-up form .input-code.bad::after {
+    display: block ;
+}
+.card .body-sign-up form .input-user.good::before,
+.card .body-sign-up form .input-phone-num.good::before,
+.card .body-sign-up form .input-email.good::before,
+.card .body-sign-up form .input-password.good::before,
+.card .body-sign-up form .input-re-password.good::before,
+.card .body-sign-up form .input-code.good::before {
+    display: block ;
+}
+
+.card .body-sign-up form .input-user label,
+.card .body-sign-up form .input-phone-num label,
+.card .body-sign-up form .input-email label,
+.card .body-sign-up form .input-password label,
+.card .body-sign-up form .input-re-password label ,
+.card .body-sign-up form .input-code label{
+    flex-basis: 9%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--main-color-alt);
+    background-color: var(--main-color-alt);
+    color: white;
+    margin-right: -1px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+@media (max-width: 420px){    
+    .card .body-sign-up form .input-user label,
+    .card .body-sign-up form .input-phone-num label,
+    .card .body-sign-up form .input-email label,
+    .card .body-sign-up form .input-password label,
+    .card .body-sign-up form .input-re-password label,
+    .card .body-sign-up form .input-code label{
+        flex-basis: 10%;
+    }
+}
+.card .body-sign-up form .input-user label i,
+.card .body-sign-up form .input-phone-num label i,
+.card .body-sign-up form .input-email label i,
+.card .body-sign-up form .input-password label i,
+.card .body-sign-up form .input-re-password label i,
+.card .body-sign-up form .input-code label i {
+    font-size: 14px;
+}
+.card .body-sign-up form .input-user input,
+.card .body-sign-up form .input-phone-num input,
+.card .body-sign-up form .input-email input,
+.card .body-sign-up form .input-password input,
+.card .body-sign-up form .input-re-password input,
+.card .body-sign-up form .input-code input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid var(--main-color-alt);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    caret-color: var(--main-color);
+}
+
+.card .body-sign-up form .input-user input::placeholder,
+.card .body-sign-up form .input-phone-num input::placeholder,
+.card .body-sign-up form .input-email input::placeholder,
+.card .body-sign-up form .input-password input::placeholder,
+.card .body-sign-up form .input-re-password input::placeholder,
+.card .body-sign-up form .input-code input::placeholder {
+    font-size: 14px;
+}
+.card .body-sign-up form .input-user input:focus,
+.card .body-sign-up form .input-phone-num input:focus,
+.card .body-sign-up form .input-email input:focus,
+.card .body-sign-up form .input-password input:focus,
+.card .body-sign-up form .input-re-password input:focus,
+.card .body-sign-up form .input-code input:focus {
+    outline:none;
+}
+
+
+
+.card .body-sign-up form .submit {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+.card .body-sign-up form .submit button{
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    background-color: rgb(0 117 255 / 90%);
+    border-radius: 5px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin: 10px 0px;
+}
+.card .body-sign-up form .submit button:hover {
+    background-color: var(--main-color);
+}
+
+.card .body-sign-up form .register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+.card .body-sign-up form .register a {
+    color: var(--links-color);
+    text-decoration: none;
+}
+.card .body-sign-up form .register a:hover {
+    color: var(--links-color-hover);
+}
+
+
+
+
+
+.card .footer-sign-up hr {
+    border: 1px solid #495057;
+}
+.card .footer-sign-up .footer-sign-up1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px 50px;
+}
+@media (max-width: 420px){    
+    .card .footer-sign-up .footer-sign-up1 {
+        padding: 15px 30px;
+    }
+}
+.card .footer-sign-up .footer-sign-up1 a {
+    color: var(--links-color);
+    text-decoration:underline;
+}
+.card .footer-sign-up .footer-sign-up1 a:hover {
+    color: var(--links-color-hover);
+}
+
+.card .footer-sign-up .footer-sign-up2{
+    display: flex;
+    justify-content: space-around;
+    padding: 0px 35px;
+    margin-top: 13px;
+}
+@media (max-width: 420px){    
+    .card .footer-sign-up .footer-sign-up2 {
+        padding: 0px;
+    }
+}
+.card .footer-sign-up .footer-sign-up2 a {
+    color: var(--links-color);
+    text-decoration:underline;
+}
+.card .footer-sign-up .footer-sign-up2 a:hover {
+    color: var(--links-color-hover);
+}
